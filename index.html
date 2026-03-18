@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MCR Equipment Services</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -15,9 +18,75 @@
 }
 
 body {
-  background: #0a0a0a;
+  background: #050505;
   color: #fff;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND GRID ANIMATION */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(rgba(255,45,45,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,45,45,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,45,45,0.25), transparent);
+  top: 20%;
+  left: 10%;
+  filter: blur(120px);
+  animation: floatGlow 10s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(200px,100px); }
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+header h1 {
+  font-family: 'Oswald';
+  font-size: 1.3rem;
+}
+
+header span {
+  color: #ff2d2d;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+header a:hover {
+  opacity: 1;
 }
 
 /* HERO */
@@ -27,13 +96,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(145deg, #0a0a0a 60%, #111 100%);
   padding: 20px;
 }
 
-.hero h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
+.hero h2 {
+  font-family: 'Oswald';
+  font-size: 3.5rem;
   letter-spacing: 2px;
 }
 
@@ -44,18 +112,17 @@ body {
 .hero p {
   margin-top: 15px;
   color: #aaa;
-  max-width: 500px;
+  max-width: 600px;
 }
 
-.cta {
-  margin-top: 25px;
-}
-
+/* BUTTON */
 .btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 35px;
   background: #ff2d2d;
-  padding: 14px 30px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
   transition: 0.3s;
@@ -63,110 +130,119 @@ body {
 
 .btn:hover {
   background: #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* SECTION */
+.section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
 /* SERVICES */
-.services {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.services h2 {
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 40px;
-}
-
-.service-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
 
 .card {
-  background: #111;
-  padding: 25px;
-  border-left: 4px solid #ff2d2d;
-  transition: 0.3s;
+  background: #0f0f0f;
+  padding: 30px;
+  border: 1px solid #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #ff2d2d;
+  top: 0;
+  left: 0;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 40px rgba(255,45,45,0.15);
 }
 
 /* ABOUT */
-.about {
-  padding: 80px 20px;
-  background: #0d0d0d;
-  text-align: center;
-}
-
 .about p {
-  max-width: 600px;
+  max-width: 650px;
   margin: auto;
   color: #bbb;
 }
 
 /* CONTACT */
-.contact {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.contact h2 {
-  font-family: 'Oswald', sans-serif;
-}
-
-.phone {
-  font-size: 1.5rem;
+.contact .phone {
+  font-size: 2rem;
   color: #ff2d2d;
   margin-top: 15px;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #555;
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
-</style>
 
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  padding: 30px;
+  text-align: center;
+  color: #444;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<header>
+  <h1>MCR <span>Equipment</span></h1>
+  <div>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+</header>
+
 <section class="hero">
   <div>
-    <h1>MCR <span>Equipment Services</span></h1>
-    <p>Mobile repair & maintenance for construction, warehouse, trucks, and generators.</p>
-    
-    <div class="cta">
-      <a href="tel:17073208990" class="btn">Call Now</a>
-    </div>
+    <h2>Mobile <span>Equipment Repair</span></h2>
+    <p>Fast, reliable, on-site repair and maintenance for construction, warehouse, and heavy equipment.</p>
+    <a href="tel:17073208990" class="btn">Call Now</a>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services">
-  <h2>Our Services</h2>
-  
-  <div class="service-grid">
+<section class="section reveal">
+  <h2>Services</h2>
+  <div class="grid">
     <div class="card">Equipment Repair</div>
     <div class="card">Preventative Maintenance</div>
-    <div class="card">Mobile Service</div>
+    <div class="card">Hydraulics</div>
     <div class="card">Forklifts & Generators</div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
+<section class="section about reveal">
   <h2>Why Choose MCR</h2>
   <p>
-    Owned and operated by experienced mechanics. We deliver fast, reliable, on-site service so your equipment stays running and downtime stays low.
+    Built on real-world experience. We show up, diagnose fast, and get your equipment back to work without the downtime.
   </p>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
+<section class="section contact reveal">
   <h2>Get Service Now</h2>
   <div class="phone">707-320-8990</div>
 </section>
@@ -174,6 +250,19 @@ footer {
 <footer>
   © MCR Equipment Services
 </footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
+});
+</script>
 
 </body>
 </html>

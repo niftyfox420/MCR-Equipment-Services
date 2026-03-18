@@ -11,197 +11,185 @@
 <style>
 
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  background: #050505;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  background:#050505;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
 }
 
-/* BACKGROUND GRID ANIMATION */
+/* GRID BG */
 body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  content:"";
+  position:fixed;
+  width:100%; height:100%;
   background:
-    linear-gradient(rgba(255,45,45,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,45,45,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,45,45,0.25), transparent);
-  top: 20%;
-  left: 10%;
-  filter: blur(120px);
-  animation: floatGlow 10s infinite alternate ease-in-out;
-  z-index: -1;
-}
-
-@keyframes floatGlow {
-  0% { transform: translate(0,0); }
-  100% { transform: translate(200px,100px); }
+    linear-gradient(rgba(255,45,45,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,45,45,0.04) 1px, transparent 1px);
+  background-size:35px 35px;
+  z-index:-2;
 }
 
 /* HEADER */
 header {
-  position: fixed;
-  width: 100%;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
+  position:fixed;
+  width:100%;
+  padding:12px 30px;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(8px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
 }
 
 header h1 {
-  font-family: 'Oswald';
-  font-size: 1.3rem;
+  font-family:'Oswald';
+  font-size:1.1rem;
 }
 
-header span {
-  color: #ff2d2d;
-}
-
-header a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-header a:hover {
-  opacity: 1;
-}
+header span { color:#ff2d2d; }
 
 /* HERO */
 .hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+  height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
 }
 
 .hero h2 {
-  font-family: 'Oswald';
-  font-size: 3.5rem;
-  letter-spacing: 2px;
+  font-family:'Oswald';
+  font-size:3rem;
 }
 
-.hero span {
-  color: #ff2d2d;
-}
+.hero span { color:#ff2d2d; }
 
 .hero p {
-  margin-top: 15px;
-  color: #aaa;
-  max-width: 600px;
+  margin-top:10px;
+  color:#aaa;
+  max-width:500px;
 }
 
 /* BUTTON */
 .btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 35px;
-  background: #ff2d2d;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: 0.3s;
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 28px;
+  background:#ff2d2d;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:4px;
 }
 
 .btn:hover {
-  background: #ff4d4d;
-  transform: scale(1.05);
+  background:#ff4d4d;
 }
 
 /* SECTION */
 .section {
-  padding: 100px 20px;
-  text-align: center;
+  padding:60px 15px;
+  text-align:center;
 }
 
-/* SERVICES */
+/* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:25px;
 }
 
+/* CARD */
 .card {
-  background: #0f0f0f;
-  padding: 30px;
-  border: 1px solid #1a1a1a;
-  position: relative;
-  overflow: hidden;
-  transition: 0.4s;
+  background:#0f0f0f;
+  padding:22px;
+  border:1px solid #1a1a1a;
+  cursor:pointer;
+  transition:0.3s;
+  position:relative;
 }
 
 .card::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background: #ff2d2d;
-  top: 0;
-  left: 0;
+  content:"";
+  position:absolute;
+  height:3px;
+  width:100%;
+  background:#ff2d2d;
+  top:0;
+  left:0;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 40px rgba(255,45,45,0.15);
+  transform:translateY(-5px);
+  box-shadow:0 8px 25px rgba(255,45,45,0.15);
 }
 
-/* ABOUT */
-.about p {
-  max-width: 650px;
-  margin: auto;
-  color: #bbb;
+/* MODAL */
+.modal {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+  z-index:200;
 }
+
+.modal.active {
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-content {
+  background:#0d0d0d;
+  padding:30px;
+  max-width:500px;
+  width:90%;
+  border:1px solid #222;
+  position:relative;
+}
+
+.modal-content h3 {
+  font-family:'Oswald';
+  margin-bottom:10px;
+}
+
+.modal-content p {
+  color:#bbb;
+}
+
+.close {
+  position:absolute;
+  top:10px;
+  right:15px;
+  cursor:pointer;
+  font-size:20px;
+  color:#999;
+}
+
+.close:hover { color:#fff; }
 
 /* CONTACT */
-.contact .phone {
-  font-size: 2rem;
-  color: #ff2d2d;
-  margin-top: 15px;
+.phone {
+  font-size:1.8rem;
+  color:#ff2d2d;
+  margin-top:10px;
 }
 
-/* SCROLL ANIMATION */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* FOOTER */
 footer {
-  padding: 30px;
-  text-align: center;
-  color: #444;
+  padding:20px;
+  text-align:center;
+  color:#444;
 }
 
 </style>
@@ -211,57 +199,84 @@ footer {
 
 <header>
   <h1>MCR <span>Equipment</span></h1>
-  <div>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-  </div>
 </header>
 
 <section class="hero">
   <div>
     <h2>Mobile <span>Equipment Repair</span></h2>
-    <p>Fast, reliable, on-site repair and maintenance for construction, warehouse, and heavy equipment.</p>
+    <p>Fast, reliable on-site repair for heavy equipment.</p>
     <a href="tel:17073208990" class="btn">Call Now</a>
   </div>
 </section>
 
-<section class="section reveal">
+<section class="section">
   <h2>Services</h2>
+
   <div class="grid">
-    <div class="card">Equipment Repair</div>
-    <div class="card">Preventative Maintenance</div>
-    <div class="card">Hydraulics</div>
-    <div class="card">Forklifts & Generators</div>
+    <div class="card" onclick="openModal('repair')">Equipment Repair</div>
+    <div class="card" onclick="openModal('pm')">Preventative Maintenance</div>
+    <div class="card" onclick="openModal('hydraulic')">Hydraulics</div>
+    <div class="card" onclick="openModal('forklift')">Forklifts & Generators</div>
   </div>
 </section>
 
-<section class="section about reveal">
-  <h2>Why Choose MCR</h2>
-  <p>
-    Built on real-world experience. We show up, diagnose fast, and get your equipment back to work without the downtime.
-  </p>
-</section>
-
-<section class="section contact reveal">
+<section class="section">
   <h2>Get Service Now</h2>
   <div class="phone">707-320-8990</div>
 </section>
 
-<footer>
-  © MCR Equipment Services
-</footer>
+<footer>© MCR Equipment Services</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="close" onclick="closeModal()">✕</div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+  </div>
+</div>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
 
-window.addEventListener('scroll', () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add('active');
-    }
-  });
+function openModal(type){
+  const modal = document.getElementById('modal');
+  const title = document.getElementById('modalTitle');
+  const text = document.getElementById('modalText');
+
+  if(type === 'repair'){
+    title.innerText = "Equipment Repair";
+    text.innerText = "Full diagnostics and repair for heavy equipment. Fast response and on-site service to minimize downtime.";
+  }
+
+  if(type === 'pm'){
+    title.innerText = "Preventative Maintenance";
+    text.innerText = "Scheduled maintenance services to keep your equipment running efficiently and prevent costly breakdowns.";
+  }
+
+  if(type === 'hydraulic'){
+    title.innerText = "Hydraulic Services";
+    text.innerText = "Hydraulic hose repair, replacement, and system diagnostics to keep your machines operating at full power.";
+  }
+
+  if(type === 'forklift'){
+    title.innerText = "Forklifts & Generators";
+    text.innerText = "Repair and maintenance for forklifts and generators, ensuring reliability in warehouse and field operations.";
+  }
+
+  modal.classList.add('active');
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+}
+
+/* CLOSE ON BACKGROUND CLICK */
+document.getElementById('modal').addEventListener('click', function(e){
+  if(e.target.id === 'modal'){
+    closeModal();
+  }
 });
+
 </script>
 
 </body>

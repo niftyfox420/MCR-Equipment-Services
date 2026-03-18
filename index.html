@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCR Equipment Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(145deg, #0a0a0a 60%, #111 100%);
+  padding: 20px;
+}
+
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.hero span {
+  color: #ff2d2d;
+}
+
+.hero p {
+  margin-top: 15px;
+  color: #aaa;
+  max-width: 500px;
+}
+
+.cta {
+  margin-top: 25px;
+}
+
+.btn {
+  background: #ff2d2d;
+  padding: 14px 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff4d4d;
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 40px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-left: 4px solid #ff2d2d;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ABOUT */
+.about {
+  padding: 80px 20px;
+  background: #0d0d0d;
+  text-align: center;
+}
+
+.about p {
+  max-width: 600px;
+  margin: auto;
+  color: #bbb;
+}
+
+/* CONTACT */
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
+.phone {
+  font-size: 1.5rem;
+  color: #ff2d2d;
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>MCR <span>Equipment Services</span></h1>
+    <p>Mobile repair & maintenance for construction, warehouse, trucks, and generators.</p>
+    
+    <div class="cta">
+      <a href="tel:17073208990" class="btn">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2>Our Services</h2>
+  
+  <div class="service-grid">
+    <div class="card">Equipment Repair</div>
+    <div class="card">Preventative Maintenance</div>
+    <div class="card">Mobile Service</div>
+    <div class="card">Forklifts & Generators</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <h2>Why Choose MCR</h2>
+  <p>
+    Owned and operated by experienced mechanics. We deliver fast, reliable, on-site service so your equipment stays running and downtime stays low.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Get Service Now</h2>
+  <div class="phone">707-320-8990</div>
+</section>
+
+<footer>
+  © MCR Equipment Services
+</footer>
+
+</body>
+</html>
